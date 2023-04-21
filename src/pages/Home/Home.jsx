@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ItemCard from '../../components/ItemCard'
 import axios from 'axios'
+import bannerImage from '../../assets/banner_img.jpg'
+import './home.css'
 
 const Home = () => {
   const [items, setItems] = useState([])
@@ -15,8 +17,10 @@ const Home = () => {
 
   return (
     <div>
-      <div className='container'>
-        <div>Banner</div>
+      <div>
+        <img id='banner-img' src={bannerImage} alt='' />
+      </div>
+      <div className='container pt-4'>
         <div className='row d-flex justify-content-center'>
           {items.map((item) => (
             <ItemCard
