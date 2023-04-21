@@ -1,10 +1,10 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home/Home'
-import ItemDetails from '../pages/ItemDetails/ItemDetails'
-import Signup from '../pages/Signup/Signup'
-import Login from '../pages/Login/Login'
-import About from '../pages/About/About'
+import Home from '../pages/Home'
+import ItemDetails from '../pages/ItemDetails'
+import Signup from '../pages/Signup'
+import Login from '../pages/Login'
+import About from '../pages/About'
 
 const RoutesIndex = () => {
   return (
