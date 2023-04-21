@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ItemCard from '../components/ItemCard'
+import ItemCard from '../../components/ItemCard'
 import axios from 'axios'
 
 const Home = () => {
