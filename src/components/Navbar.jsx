@@ -25,7 +25,7 @@ const Navbar = () => {
             <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
             <button className='btn btn-outline-success' type='submit'>Search</button>
           </form>
-          <ul>
+          <ul className='navbar-nav mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>
               <NavLink className='nav-link dropdown-toggle' to='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                 Hello, log in or sign up
