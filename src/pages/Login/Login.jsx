@@ -15,8 +15,12 @@ const Login = () => {
   return (
     <div>
       <div className='container'>
+        <div>
+          <h2>Sign In</h2>
+          <h5>Enter your login credentials</h5>
+          <hr />
+        </div>
         <form
-          className='d-flex flex-column'
           onSubmit={handleSubmit}
         >
           <div className='mb-3'>

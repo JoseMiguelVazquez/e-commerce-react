@@ -20,8 +20,12 @@ const Signup = () => {
   return (
     <div>
       <div className='container'>
+        <div>
+          <h2>Sign Up</h2>
+          <h5>It's free and takes less than 30 seconds</h5>
+          <hr />
+        </div>
         <form
-          className='d-flex flex-column'
           onSubmit={handleSubmit}
         >
           <div className='mb-3'>
