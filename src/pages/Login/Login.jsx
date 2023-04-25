@@ -49,7 +49,7 @@ const Login = () => {
               autoComplete='off'
             />
           </div>
-          <button className='btn btn-primary' type='submit'>
+          <button className='btn btn-custom' type='submit'>
             Log In
           </button>
         </form>

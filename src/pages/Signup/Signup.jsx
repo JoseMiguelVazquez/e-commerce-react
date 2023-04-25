@@ -97,7 +97,7 @@ const Signup = () => {
               <option value='ADMIN'>Admin</option>
             </select>
           </div>
-          <button className='btn btn-primary' type='submit'>
+          <button className='btn btn-custom' type='submit'>
             Sign Up
           </button>
         </form>
