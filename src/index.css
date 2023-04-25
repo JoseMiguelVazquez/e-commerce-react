@@ -7,3 +7,11 @@
 body {
   font-family: 'Cabin', sans-serif;
 }
+
+.btn-custom {
+  background-color: rgb(237, 163, 21);
+}
+
+.btn-custom:hover {
+  background-color: rgb(240, 180, 69);
+}
