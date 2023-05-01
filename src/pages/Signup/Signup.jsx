@@ -1,25 +1,34 @@
+import { useNavigate } from 'react-router-dom'
 import React from 'react'
 import useForm from '../../hooks/useForm'
+import { registerUserService } from '../../services/userService'
 
 const Signup = () => {
-  const defaults = {
+  const navigate = useNavigate()
+  const sendData = async (data) => {
+    try {
+      const response = await registerUserService(data)
+      if (response.status === 201) {
+        console.log('Usuario creado: ', response)
+        navigate('/login')
+      }
+    } catch (error) {
+      console.log('Ocurrió un error: ' + error.message)
+    }
+  }
+
+  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
     first_name: '',
     last_name: '',
     gender: '',
     email: '',
     password: '',
     role: ''
-  }
-
-  const sendData = (data) => {
-    console.log(data)
-  }
-
-  const { input, handleInputChange, handleSubmit } = useForm(sendData, defaults)
+  })
 
   return (
     <div>
-      <div className='container'>
+      <div className='container mt-4'>
         <div>
           <h2>Sign Up</h2>
           <h5>It's free and takes less than 30 seconds</h5>

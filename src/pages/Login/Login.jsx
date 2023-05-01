@@ -2,19 +2,18 @@ import React from 'react'
 import useForm from '../../hooks/useForm'
 
 const Login = () => {
-  const defaults = {
-    email: '',
-    password: ''
-  }
-
   const sendData = (data) => {
     console.log(data)
   }
 
-  const { input, handleInputChange, handleSubmit } = useForm(sendData, defaults)
+  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
+    email: '',
+    password: ''
+  })
+
   return (
     <div>
-      <div className='container'>
+      <div className='container mt-4'>
         <div>
           <h2>Sign In</h2>
           <h5>Enter your login credentials</h5>
