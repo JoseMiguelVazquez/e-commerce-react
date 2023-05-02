@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import imageNotAvailable from '../../assets/Image-Not-Available.png'
+import imageNotAvailable from '@/assets/Image-Not-Available.png'
 import './itemCard.css'
 
 const ItemCard = ({ id, imageUrl, name, price }) => {

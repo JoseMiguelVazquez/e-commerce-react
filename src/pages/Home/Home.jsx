@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import ItemCard from '../../components/ItemCard'
+import ItemCard from '@/components/ItemCard'
 import axios from 'axios'
-import bannerImage from '../../assets/banner_img.jpg'
+import bannerImage from '@/assets/banner_img.jpg'
 import './home.css'
 
 const Home = () => {
