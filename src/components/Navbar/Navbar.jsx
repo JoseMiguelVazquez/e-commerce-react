@@ -1,8 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSearchContext } from '@/context/SearchContext'
 import './navbar.css'
 
 const Navbar = () => {
+  const searchContext = useSearchContext()
+
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
       <div className='container-fluid'>
@@ -23,8 +26,20 @@ const Navbar = () => {
             </li>
           </ul>
           <form className='d-flex' role='search'>
-            <input className='form-control me-2' type='search' placeholder='Search' aria-label='Search' />
-            <button className='btn btn-custom' type='submit'>Search</button>
+            <input
+              className='form-control me-2'
+              type='search'
+              placeholder='Search'
+              aria-label='Search'
+              value={searchContext.searchTerm}
+              onChange={(event) => searchContext.setSearchTerm(event.target.value)}
+            />
+            <NavLink
+              to='/search'
+              className='btn-search'
+              type='button'
+            >Search
+            </NavLink>
           </form>
           <ul className='navbar-nav mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>

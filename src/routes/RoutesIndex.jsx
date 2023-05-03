@@ -5,6 +5,7 @@ import ItemDetails from '@/pages/ItemDetails'
 import Signup from '@/pages/Signup'
 import Login from '@/pages/Login'
 import About from '@/pages/About'
+import SearchPage from '@/pages/SearchPage/'
 
 const RoutesIndex = () => {
   return (
@@ -14,6 +15,7 @@ const RoutesIndex = () => {
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
       <Route path='/about' element={<About />} />
+      <Route path='/search' element={<SearchPage />} />
     </Routes>
   )
 }

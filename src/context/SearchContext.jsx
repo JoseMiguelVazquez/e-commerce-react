@@ -1,24 +1,16 @@
-import { createContext, useState, useEffect, useContext } from 'react'
-import axios from 'axios'
+import { createContext, useState, useContext } from 'react'
+// import axios from 'axios'
 
 // Create Context
 const SearchContext = createContext()
 
 // Create Provider (function)
 function SearchProvider (props) {
-  const [searchItems, setSearchItems] = useState([])
-
-  useEffect(() => {
-    axios.get('http://localhost:3000/items')
-      .then(response => {
-        setSearchItems(response.data)
-      }).catch(error => {
-        console.log(error)
-      })
-  }, [])
+  const [searchTerm, setSearchTerm] = useState('')
 
   const values = {
-    searchItems
+    searchTerm,
+    setSearchTerm
   }
 
   return (

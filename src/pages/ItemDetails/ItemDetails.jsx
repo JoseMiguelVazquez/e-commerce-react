@@ -19,11 +19,11 @@ const ItemDetails = () => {
 
   return (
     <div>
-      <div className='container-md'>
+      <div className='container-md mt-3'>
         <div>
           <button className='btn' onClick={() => navigate(-1)}> &lt; Back</button>
         </div>
-        <div className='d-flex flex-column flex-sm-row'>
+        <div className='d-flex flex-column flex-sm-row mt-3'>
           <div className='px-3 mb-3 d-flex align-items-center'>
             <img className='item-image-md' src={item.image} alt='' />
           </div>
