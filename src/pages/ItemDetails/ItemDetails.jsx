@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { getSingleItem } from '@/services/itemServices'
 import './itemDetails.css'
 
 const ItemDetails = () => {
@@ -9,12 +9,17 @@ const ItemDetails = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/items/${id}`)
-      .then(response => {
-        setItem(response.data)
-      }).catch(error => {
-        console.log(error)
-      })
+    const fetchItemData = async () => {
+      try {
+        const response = await getSingleItem(id)
+        if (response.status === 200) {
+          setItem(response.data)
+        }
+      } catch (error) {
+        console.log('Ocurrió un error: ' + error.message)
+      }
+    }
+    fetchItemData()
   }, [])
 
   return (
