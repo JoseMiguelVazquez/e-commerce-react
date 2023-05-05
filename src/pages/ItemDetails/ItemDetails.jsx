@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getSingleItem } from '@/services/itemServices'
+import { useAuthContext } from '@/context/AuthContext'
 import './itemDetails.css'
 
 const ItemDetails = () => {
   const [item, setItem] = useState({})
   const { id } = useParams()
   const navigate = useNavigate()
+  const { isAuth } = useAuthContext()
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -37,7 +39,8 @@ const ItemDetails = () => {
             <p>{item.brand}</p>
             <h5>${item.price}.00</h5>
             <p>{item.description}</p>
-            <button className='btn btn-custom'>Add to Cart</button>
+            <button className='btn btn-custom me-3' disabled={!isAuth}>Add to Cart</button>
+            {!isAuth && <Link to='/login' className='text-dark'>Log in to Buy</Link>}
           </div>
         </div>
         <div>
