@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
 import { getSingleUser } from '@/services/userService'
@@ -9,6 +9,7 @@ const Navbar = () => {
   const { searchTerm, setSearchTerm } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
   const [userData, setuserData] = useState('')
+  const searchNavigate = useNavigate()
 
   const fetchUserData = async () => {
     if (userPayload) {
@@ -28,6 +29,11 @@ const Navbar = () => {
       fetchUserData()
     }
   }, [isAuth])
+
+  const onSearch = (event, query) => {
+    event.preventDefault()
+    searchNavigate(`/search/${query}`)
+  }
 
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
@@ -51,7 +57,7 @@ const Navbar = () => {
                 </li>
             }
           </ul>
-          <form className='d-flex' role='search'>
+          <form className='d-flex' role='search' onSubmit={(event) => onSearch(event, searchTerm)}>
             <input
               className='form-control me-2'
               type='search'
@@ -60,12 +66,11 @@ const Navbar = () => {
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
             />
-            <NavLink
-              to='/search'
+            <button
               className='btn-search'
-              type='button'
+              type='submit'
             >Search
-            </NavLink>
+            </button>
           </form>
           <ul className='navbar-nav mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>

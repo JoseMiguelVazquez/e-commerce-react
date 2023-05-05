@@ -15,7 +15,7 @@ const RoutesIndex = () => {
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
       <Route path='/about' element={<About />} />
-      <Route path='/search' element={<SearchPage />} />
+      <Route path='/search/:query' element={<SearchPage />} />
     </Routes>
   )
 }
