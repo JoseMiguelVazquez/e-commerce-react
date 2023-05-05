@@ -3,10 +3,11 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
 import { getSingleUser } from '@/services/userService'
+import { getAllItems } from '@/services/itemServices'
 import './navbar.css'
 
 const Navbar = () => {
-  const { searchTerm, setSearchTerm } = useSearchContext()
+  const { searchTerm, setSearchTerm, setSearchItems } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
   const [userData, setuserData] = useState('')
   const searchNavigate = useNavigate()
@@ -30,9 +31,30 @@ const Navbar = () => {
     }
   }, [isAuth])
 
-  const onSearch = (event, query) => {
+  const fetchItemsData = async () => {
+    try {
+      const response = await getAllItems()
+      if (response.status === 200) {
+        setSearchItems(response.data.filter(item => {
+          if (searchTerm === '') {
+            return item
+          } else if (item.product_name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return item
+          }
+          return false
+        }))
+      }
+    } catch (error) {
+      console.log('Ocurrió un error: ' + error.message)
+    }
+  }
+
+  const onSearch = (event) => {
+    if (searchTerm !== '') {
+      fetchItemsData()
+      searchNavigate(`/search/${searchTerm}`)
+    }
     event.preventDefault()
-    searchNavigate(`/search/${query}`)
   }
 
   return (
@@ -57,7 +79,7 @@ const Navbar = () => {
                 </li>
             }
           </ul>
-          <form className='d-flex' role='search' onSubmit={(event) => onSearch(event, searchTerm)}>
+          <form className='d-flex' role='search' onSubmit={onSearch}>
             <input
               className='form-control me-2'
               type='search'
