@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
+import { getUserData } from '@/services/userService'
 import './navbar.css'
 
 const Navbar = () => {
   const { searchTerm, setSearchTerm } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
+  const [userData, setuserData] = useState('')
+
+  const fetchUserData = async () => {
+    if (userPayload) {
+      try {
+        const response = await getUserData(userPayload.id)
+        if (response.status === 200) {
+          setuserData(response.data)
+        }
+      } catch (error) {
+        console.log('Ocurrió un error: ' + error.message)
+      }
+    }
+  }
+  useEffect(() => {
+    const token = window.localStorage.getItem('token')
+    if (token) {
+      fetchUserData()
+    }
+  }, [isAuth])
 
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
@@ -49,7 +70,7 @@ const Navbar = () => {
           <ul className='navbar-nav mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>
               <NavLink className='nav-link dropdown-toggle' to='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                Hello, {isAuth ? 'LOGED' : ('log in or sign up')}
+                Hello, {isAuth ? userData?.first_name : ('log in or sign up')}
               </NavLink>
               <ul className='dropdown-menu'>
                 {isAuth
