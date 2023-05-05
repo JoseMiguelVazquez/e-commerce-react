@@ -6,12 +6,9 @@ const SearchContext = createContext()
 
 // Create Provider (function)
 function SearchProvider (props) {
-  const [searchTerm, setSearchTerm] = useState('')
   const [searchItems, setSearchItems] = useState([])
 
   const values = {
-    searchTerm,
-    setSearchTerm,
     searchItems,
     setSearchItems
   }

@@ -7,8 +7,9 @@ import { getAllItems } from '@/services/itemServices'
 import './navbar.css'
 
 const Navbar = () => {
-  const { searchTerm, setSearchTerm, setSearchItems } = useSearchContext()
+  const { setSearchItems } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
+  const [searchTerm, setSearchTerm] = useState('')
   const [userData, setuserData] = useState('')
   const searchNavigate = useNavigate()
 
