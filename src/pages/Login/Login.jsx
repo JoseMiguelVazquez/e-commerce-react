@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import useForm from '@/hooks/useForm'
 import { loginUserService } from '@/services/userService'
 import { useAuthContext } from '@/context/AuthContext'
@@ -30,7 +30,7 @@ const Login = () => {
     <div>
       <div className='container mt-4'>
         <div>
-          <h2>Sign In</h2>
+          <h2>Log In</h2>
           <h5>Enter your login credentials</h5>
           <hr />
         </div>
@@ -63,9 +63,10 @@ const Login = () => {
               autoComplete='off'
             />
           </div>
-          <button className='btn btn-custom' type='submit'>
+          <button className='btn btn-custom me-3' type='submit'>
             Log In
           </button>
+          <Link className='text-dark' to='/signup'>Not a registered user? Sign Up!</Link>
         </form>
       </div>
     </div>

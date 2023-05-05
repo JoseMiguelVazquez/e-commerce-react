@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import useForm from '@/hooks/useForm'
 import { registerUserService } from '@/services/userService'
 
@@ -107,9 +107,10 @@ const Signup = () => {
               <option value='ADMIN'>Admin</option>
             </select>
           </div>
-          <button className='btn btn-custom' type='submit'>
+          <button className='btn btn-custom me-3' type='submit'>
             Sign Up
           </button>
+          <Link className='text-dark' to='/login'>Already registered? Log In!</Link>
         </form>
       </div>
     </div>
