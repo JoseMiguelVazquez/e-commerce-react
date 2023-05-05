@@ -4,7 +4,7 @@ import { useSearchContext } from '@/context/SearchContext'
 import './navbar.css'
 
 const Navbar = () => {
-  const searchContext = useSearchContext()
+  const { searchTerm, setSearchTerm } = useSearchContext()
 
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
@@ -31,8 +31,8 @@ const Navbar = () => {
               type='search'
               placeholder='Search'
               aria-label='Search'
-              value={searchContext.searchTerm}
-              onChange={(event) => searchContext.setSearchTerm(event.target.value)}
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
             />
             <NavLink
               to='/search'

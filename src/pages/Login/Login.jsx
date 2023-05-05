@@ -2,15 +2,18 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import useForm from '@/hooks/useForm'
 import { loginUserService } from '@/services/userService'
+import { useAuthContext } from '@/context/AuthContext'
 
 const Login = () => {
   const navigate = useNavigate()
+  const { login } = useAuthContext()
 
   const sendData = async (data) => {
     try {
       const response = await loginUserService(data)
       if (response.status === 200) {
-        console.log('Usuario Autorizado: ', response.data)
+        console.log('Usuario Autorizado: ', response.data.token)
+        login(response.data.token)
         navigate('/')
       }
     } catch (error) {

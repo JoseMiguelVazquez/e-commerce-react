@@ -5,15 +5,15 @@ import axios from 'axios'
 import './searchPage.css'
 
 const SearchPage = () => {
-  const searchContext = useSearchContext()
+  const { searchTerm } = useSearchContext()
   const [searchItems, setSearchItems] = useState([])
   useEffect(() => {
     axios.get('http://localhost:3000/items')
       .then(response => {
         setSearchItems(response.data.filter(item => {
-          if (searchContext.searchTerm === '') {
+          if (searchTerm === '') {
             return item
-          } else if (item.product_name.toLowerCase().includes(searchContext.searchTerm.toLowerCase())) {
+          } else if (item.product_name.toLowerCase().includes(searchTerm.toLowerCase())) {
             return item
           }
           return false
