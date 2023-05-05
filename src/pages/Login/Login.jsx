@@ -1,9 +1,21 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import useForm from '@/hooks/useForm'
+import { loginUserService } from '@/services/userService'
 
 const Login = () => {
-  const sendData = (data) => {
-    console.log(data)
+  const navigate = useNavigate()
+
+  const sendData = async (data) => {
+    try {
+      const response = await loginUserService(data)
+      if (response.status === 200) {
+        console.log('Usuario Autorizado: ', response.data)
+        navigate('/')
+      }
+    } catch (error) {
+      console.log('Ocurrió un error: ' + error.message)
+    }
   }
 
   const { input, handleInputChange, handleSubmit } = useForm(sendData, {

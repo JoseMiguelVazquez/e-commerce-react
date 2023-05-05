@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import useForm from '@/hooks/useForm'
 import { registerUserService } from '@/services/userService'
 
 const Signup = () => {
   const navigate = useNavigate()
+
   const sendData = async (data) => {
     try {
       const response = await registerUserService(data)
