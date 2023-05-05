@@ -1,10 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
+import { useAuthContext } from '@/context/AuthContext'
 import './navbar.css'
 
 const Navbar = () => {
   const { searchTerm, setSearchTerm } = useSearchContext()
+  const { isAuth, userPayload, logout } = useAuthContext()
 
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
@@ -44,12 +46,22 @@ const Navbar = () => {
           <ul className='navbar-nav mb-2 mb-lg-0'>
             <li className='nav-item dropdown'>
               <NavLink className='nav-link dropdown-toggle' to='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-                Hello, log in or sign up
+                Hello, {isAuth ? 'LOGED' : ('log in or sign up')}
               </NavLink>
               <ul className='dropdown-menu'>
-                <li><NavLink className='dropdown-item' to='/login'>Log In</NavLink></li>
-                <li><hr className='dropdown-divider' /></li>
-                <li><NavLink className='dropdown-item' to='/signup'>Sign Up</NavLink></li>
+                {isAuth
+                  ? (
+                    <>
+                      <li><NavLink className='dropdown-item' to='/' onClick={logout}>Log Out</NavLink></li>
+                    </>
+                    )
+                  : (
+                    <>
+                      <li><NavLink className='dropdown-item' to='/login'>Log In</NavLink></li>
+                      <li><hr className='dropdown-divider' /></li>
+                      <li><NavLink className='dropdown-item' to='/signup'>Sign Up</NavLink></li>
+                    </>
+                    )}
               </ul>
             </li>
           </ul>
