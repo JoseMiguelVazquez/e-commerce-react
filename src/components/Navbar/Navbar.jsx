@@ -23,9 +23,12 @@ const Navbar = () => {
             <li className='nav-item'>
               <NavLink className='nav-link' to='/about'>About</NavLink>
             </li>
-            <li className='nav-item'>
-              <NavLink className='nav-link disabled'>Disabled</NavLink>
-            </li>
+            {
+              userPayload?.role === 'ADMIN' &&
+                <li className='nav-item'>
+                  <NavLink className='nav-link'>Add New Item</NavLink>
+                </li>
+            }
           </ul>
           <form className='d-flex' role='search'>
             <input
