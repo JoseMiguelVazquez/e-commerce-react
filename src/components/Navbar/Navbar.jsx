@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
-import { getUserData } from '@/services/userService'
+import { getSingleUser } from '@/services/userService'
 import './navbar.css'
 
 const Navbar = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
   const fetchUserData = async () => {
     if (userPayload) {
       try {
-        const response = await getUserData(userPayload.id)
+        const response = await getSingleUser(userPayload.id)
         if (response.status === 200) {
           setuserData(response.data)
         }

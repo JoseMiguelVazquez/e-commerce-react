@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import ItemCard from '@/components/ItemCard'
-import axios from 'axios'
+import { getAllItems } from '@/services/itemServices'
 import bannerImage from '@/assets/banner_img.jpg'
 import './home.css'
 
 const Home = () => {
   const [items, setItems] = useState([])
+
   useEffect(() => {
-    axios.get('http://localhost:3000/items')
-      .then(response => {
-        setItems(response.data)
-      }).catch(error => {
-        console.log(error)
-      })
+    const fetchItemsData = async () => {
+      try {
+        const response = await getAllItems()
+        if (response.status === 200) {
+          setItems(response.data)
+        }
+      } catch (error) {
+        console.log('Ocurrió un error: ' + error.message)
+      }
+    }
+    fetchItemsData()
   }, [])
 
   return (
-    <div>
+    <>
       <div>
         <img id='banner-img' src={bannerImage} alt='' />
       </div>
@@ -33,7 +39,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
