@@ -76,7 +76,7 @@ const Navbar = () => {
             {
               userPayload?.role === 'ADMIN' &&
                 <li className='nav-item'>
-                  <NavLink className='nav-link'>Add New Item</NavLink>
+                  <NavLink className='nav-link' to='/add-item'>Add New Item</NavLink>
                 </li>
             }
           </ul>

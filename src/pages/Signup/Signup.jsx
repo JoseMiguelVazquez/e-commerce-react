@@ -49,6 +49,7 @@ const Signup = () => {
               value={input.first_name}
               onChange={handleInputChange}
               autoComplete='off'
+              required
             />
           </div>
           <div className='mb-3'>
@@ -62,11 +63,19 @@ const Signup = () => {
               value={input.last_name}
               onChange={handleInputChange}
               autoComplete='off'
+              required
             />
           </div>
           <div className='mb-3'>
             <label className='form-label' htmlFor='gender'>Gender</label>
-            <select className='form-select' name='gender' id='gender' value={input.gender} onChange={handleInputChange}>
+            <select
+              className='form-select'
+              name='gender'
+              id='gender'
+              value={input.gender}
+              onChange={handleInputChange}
+              required
+            >
               <option value=''>Choose your gender</option>
               <option value='M'>Male</option>
               <option value='F'>Female</option>
@@ -84,6 +93,7 @@ const Signup = () => {
               value={input.email}
               onChange={handleInputChange}
               autoComplete='off'
+              required
             />
           </div>
           <div className='mb-3'>
@@ -97,11 +107,12 @@ const Signup = () => {
               value={input.password}
               onChange={handleInputChange}
               autoComplete='off'
+              required
             />
           </div>
           <div className='mb-3'>
             <label className='form-label' htmlFor='role'>Role</label>
-            <select className='form-select' name='role' id='role' value={input.role} onChange={handleInputChange}>
+            <select className='form-select' name='role' id='role' value={input.role} onChange={handleInputChange} required>
               <option value=''>Choose a role</option>
               <option value='CUSTOMER'>Customer</option>
               <option value='ADMIN'>Admin</option>

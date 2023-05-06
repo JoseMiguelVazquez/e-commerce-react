@@ -6,6 +6,7 @@ import Signup from '@/pages/Signup'
 import Login from '@/pages/Login'
 import About from '@/pages/About'
 import SearchPage from '@/pages/SearchPage/'
+import AddItem from '@/pages/AddItem/'
 
 const RoutesIndex = () => {
   return (
@@ -16,6 +17,7 @@ const RoutesIndex = () => {
       <Route path='/login' element={<Login />} />
       <Route path='/about' element={<About />} />
       <Route path='/search/:query' element={<SearchPage />} />
+      <Route path='/add-item' element={<AddItem />} />
     </Routes>
   )
 }
