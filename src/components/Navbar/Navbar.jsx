@@ -95,7 +95,7 @@ const Navbar = () => {
             >Search
             </button>
           </form>
-          <ul className='navbar-nav mb-2 mb-lg-0'>
+          <ul className='navbar-nav mb-2 mb-lg-0 me-1'>
             <li className='nav-item dropdown'>
               <NavLink className='nav-link dropdown-toggle' to='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                 Hello, {isAuth ? userData?.first_name : ('log in or sign up')}
@@ -117,6 +117,7 @@ const Navbar = () => {
               </ul>
             </li>
           </ul>
+          <i class='bi bi-cart3 fs-4 text-light' />
         </div>
       </div>
     </nav>

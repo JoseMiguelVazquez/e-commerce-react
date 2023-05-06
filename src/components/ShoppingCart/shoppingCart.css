@@ -1,0 +1,29 @@
+.shopping-cart {
+    --cart-width: 300px;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: var(--cart-width);
+    height: 70vh;
+    background-color: white;
+    transition: 0.5s;
+}
+
+.show-cart {
+    left: calc(100% - var(--cart-width));
+}
+
+.shopping-products {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.checkout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    padding: 10px;
+}
