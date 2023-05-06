@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate, Link } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
 import { getSingleUser } from '@/services/userService'
@@ -104,14 +104,14 @@ const Navbar = () => {
                 {isAuth
                   ? (
                     <>
-                      <li><NavLink className='dropdown-item' to='/' onClick={logout}>Log Out</NavLink></li>
+                      <li><Link className='dropdown-item' to='/' onClick={logout}>Log Out</Link></li>
                     </>
                     )
                   : (
                     <>
-                      <li><NavLink className='dropdown-item' to='/login'>Log In</NavLink></li>
+                      <li><Link className='dropdown-item' to='/login'>Log In</Link></li>
                       <li><hr className='dropdown-divider' /></li>
-                      <li><NavLink className='dropdown-item' to='/signup'>Sign Up</NavLink></li>
+                      <li><Link className='dropdown-item' to='/signup'>Sign Up</Link></li>
                     </>
                     )}
               </ul>
