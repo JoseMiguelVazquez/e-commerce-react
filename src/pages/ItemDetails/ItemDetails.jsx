@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getSingleItem } from '@/services/itemServices'
 import { useAuthContext } from '@/context/AuthContext'
+import { useCartContext } from '@/context/CartContext'
 import './itemDetails.css'
 
 const ItemDetails = () => {
@@ -9,6 +10,7 @@ const ItemDetails = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { isAuth } = useAuthContext()
+  const { setShoppingCart, shoppingCart } = useCartContext()
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -23,6 +25,21 @@ const ItemDetails = () => {
     }
     fetchItemData()
   }, [])
+
+  const handleAddCart = () => {
+    let isUpdated = false
+    shoppingCart.forEach((product, index) => {
+      if (product.item.id === item.id) {
+        const newShoppingCart = [...shoppingCart]
+        newShoppingCart[index].quantity++
+        setShoppingCart(newShoppingCart)
+        isUpdated = true
+      }
+    })
+    if (!isUpdated) {
+      setShoppingCart((prevShoppingCart) => [...prevShoppingCart, { item, quantity: 1 }])
+    }
+  }
 
   return (
     <div>
@@ -39,7 +56,12 @@ const ItemDetails = () => {
             <p>{item.brand}</p>
             <h5>${item.price}.00</h5>
             <p>{item.description}</p>
-            <button className='btn btn-custom me-3' disabled={!isAuth}>Add to Cart</button>
+            <button
+              className='btn btn-custom me-3'
+              disabled={!isAuth}
+              onClick={handleAddCart}
+            >Add to Cart
+            </button>
             {!isAuth && <Link to='/login' className='text-dark'>Log in to Buy</Link>}
           </div>
         </div>
