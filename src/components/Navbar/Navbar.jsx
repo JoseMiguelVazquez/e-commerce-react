@@ -123,9 +123,7 @@ const Navbar = () => {
           <i className='bi bi-cart3 fs-4 text-light cart-icon' onClick={() => setOpenCart(true)} />
         </div>
       </div>
-      {openCart
-        ? <ShoppingCart />
-        : null}
+      <ShoppingCart show={openCart} />
     </nav>
   )
 }

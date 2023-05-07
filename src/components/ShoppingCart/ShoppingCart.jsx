@@ -2,10 +2,10 @@ import React from 'react'
 import { useCartContext } from '@/context/CartContext'
 import './shoppingCart.css'
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ show }) => {
   const { setOpenCart } = useCartContext()
   return (
-    <div className='shopping-cart'>
+    <div className={`shopping-cart ${show ? 'show-cart' : ''}`}>
       <h3 className='mt-3 text-center'>Shopping Cart</h3>
       <hr />
       <div className='shopping-products'>

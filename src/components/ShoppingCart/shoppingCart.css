@@ -2,7 +2,7 @@
     --cart-width: 300px;
     position: fixed;
     top: 0;
-    left: calc(100% - var(--cart-width));
+    left: 100%;
     width: var(--cart-width);
     height: 70vh;
     background-color: white;
@@ -10,9 +10,9 @@
     transition: 0.5s;
 }
 
-/* .show-cart {
+.show-cart {
     left: calc(100% - var(--cart-width));
-} */
+}
 
 .shopping-products {
     width: 100%;
