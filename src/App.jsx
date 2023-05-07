@@ -1,11 +1,10 @@
 import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Navbar from '@/components/Navbar'
-import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 import RoutesIndex from '@/routes/RoutesIndex'
 import { SearchProvider } from '@/context/SearchContext'
 import { AuthProvider } from '@/context/AuthContext'
-import { CartProvider } from './context/CartContext'
+import { CartProvider } from '@/context/CartContext'
 
 function App () {
   return (
@@ -16,7 +15,6 @@ function App () {
             <SearchProvider>
               <Navbar />
               <RoutesIndex />
-              <ShoppingCart />
             </SearchProvider>
           </BrowserRouter>
         </CartProvider>

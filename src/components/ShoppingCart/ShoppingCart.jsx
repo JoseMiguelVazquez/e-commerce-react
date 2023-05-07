@@ -1,7 +1,9 @@
 import React from 'react'
+import { useCartContext } from '@/context/CartContext'
 import './shoppingCart.css'
 
 const ShoppingCart = () => {
+  const { setOpenCart } = useCartContext()
   return (
     <div className='shopping-cart'>
       <h3 className='mt-3 text-center'>Shopping Cart</h3>
@@ -13,7 +15,7 @@ const ShoppingCart = () => {
       </div>
       <div className='checkout'>
         <button className='btn btn-custom'>Go to Pay</button>
-        <button className='btn btn-dark'>Close</button>
+        <button className='btn btn-dark' onClick={() => setOpenCart(false)}>Close</button>
       </div>
     </div>
   )

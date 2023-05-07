@@ -4,11 +4,14 @@ import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
 import { getSingleUser } from '@/services/userService'
 import { getAllItems } from '@/services/itemServices'
+import { useCartContext } from '@/context/CartContext'
+import ShoppingCart from '@/components/ShoppingCart'
 import './navbar.css'
 
 const Navbar = () => {
   const { setSearchItems } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
+  const { openCart, setOpenCart } = useCartContext()
   const [searchTerm, setSearchTerm] = useState('')
   const [userData, setuserData] = useState('')
   const searchNavigate = useNavigate()
@@ -95,7 +98,7 @@ const Navbar = () => {
             >Search
             </button>
           </form>
-          <ul className='navbar-nav mb-2 mb-lg-0 me-1'>
+          <ul className='navbar-nav mb-2 mb-lg-0 mx-1'>
             <li className='nav-item dropdown'>
               <NavLink className='nav-link dropdown-toggle' to='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                 Hello, {isAuth ? userData?.first_name : ('log in or sign up')}
@@ -117,9 +120,12 @@ const Navbar = () => {
               </ul>
             </li>
           </ul>
-          <i class='bi bi-cart3 fs-4 text-light' />
+          <i className='bi bi-cart3 fs-4 text-light cart-icon' onClick={() => setOpenCart(true)} />
         </div>
       </div>
+      {openCart
+        ? <ShoppingCart />
+        : null}
     </nav>
   )
 }

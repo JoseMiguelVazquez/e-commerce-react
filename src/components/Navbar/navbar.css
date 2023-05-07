@@ -1,3 +1,7 @@
 .navbar {
     background-color: rgb(0, 63, 98);
 }
+
+.cart-icon {
+    cursor: pointer;
+}
