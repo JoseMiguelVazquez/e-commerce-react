@@ -124,21 +124,18 @@ const Navbar = () => {
               </ul>
             </li>
           </ul>
-          {isAuth
-            ? (
-              <div className='d-flex align-items-center'>
-                <i className='bi bi-cart3 fs-4 text-light cart-icon me-1' onClick={() => setOpenCart(!openCart)} />
-                <span className='cartItemsNumber'>{cartItemsNumber}</span>
-              </div>
-              )
-            : <></>}
+          {isAuth && (
+            <div className='d-flex align-items-center'>
+              <i className='bi bi-cart3 fs-4 text-light cart-icon me-1' onClick={() => setOpenCart(!openCart)} />
+              {cartItemsNumber > 0 &&
+                <span className='cartItemsNumber text-light d-flex align-items-center justify-content-center'>{cartItemsNumber}</span>}
+            </div>
+          )}
         </div>
       </div>
-      {isAuth
-        ? (
-          <ShoppingCart show={openCart} />
-          )
-        : <></>}
+      {isAuth && (
+        <ShoppingCart show={openCart} />
+      )}
     </nav>
   )
 }

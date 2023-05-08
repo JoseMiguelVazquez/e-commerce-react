@@ -11,4 +11,6 @@
     height: 18px;
     border-radius: 50%;
     background-color: red;
+    padding-right: 1px;
+    padding-top: 1px;
 }
