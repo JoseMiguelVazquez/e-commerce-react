@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useCartContext } from '@/context/CartContext'
 import './shoppingCart.css'
 
 const ShoppingCart = ({ show }) => {
   const { setOpenCart } = useCartContext()
-  const { shoppingCart, setShoppingCart } = useCartContext()
+  const { shoppingCart, setShoppingCart, calculateTotal, cartTotal } = useCartContext()
+
+  useEffect(() => {
+    calculateTotal()
+  }, [shoppingCart])
 
   function handleIncreaseQuantity (index) {
     const newShoppingCart = [...shoppingCart]
@@ -58,7 +62,12 @@ const ShoppingCart = ({ show }) => {
           ))}
         </ul>
         <hr />
-        <h5>Total Cost: <span>0.00</span></h5>
+        <h5>
+          Total Cost:
+          <span className='ms-2'>
+            ${cartTotal}.00
+          </span>
+        </h5>
       </div>
       <div className='checkout'>
         <button className='btn btn-custom'>CHECKOUT</button>

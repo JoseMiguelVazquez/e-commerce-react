@@ -1,7 +1,7 @@
 .shopping-cart {
     --cart-width: 300px;
     position: fixed;
-    top: 0;
+    top: 64px;
     left: 100%;
     width: var(--cart-width);
     height: 70vh;

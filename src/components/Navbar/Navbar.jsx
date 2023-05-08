@@ -120,10 +120,21 @@ const Navbar = () => {
               </ul>
             </li>
           </ul>
-          <i className='bi bi-cart3 fs-4 text-light cart-icon' onClick={() => setOpenCart(true)} />
+          {isAuth
+            ? (
+              <div>
+                <span className='cartItemsNumber'>0</span>
+                <i className='bi bi-cart3 fs-4 text-light cart-icon' onClick={() => setOpenCart(!openCart)} />
+              </div>
+              )
+            : <></>}
         </div>
       </div>
-      <ShoppingCart show={openCart} />
+      {isAuth
+        ? (
+          <ShoppingCart show={openCart} />
+          )
+        : <></>}
     </nav>
   )
 }
