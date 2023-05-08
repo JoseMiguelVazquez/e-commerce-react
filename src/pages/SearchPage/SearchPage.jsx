@@ -1,13 +1,18 @@
 import { useSearchContext } from '@/context/SearchContext'
+import { useNavigate } from 'react-router-dom'
 import ItemCard from '@/components/ItemCard'
 import './searchPage.css'
 
 const SearchPage = () => {
   const { searchItems } = useSearchContext()
+  const navigate = useNavigate()
 
   return (
-    <div>
+    <>
       <div className='container pt-4'>
+        <div>
+          <button className='btn' onClick={() => navigate(-1)}> &lt; Back</button>
+        </div>
         <div className='row d-flex justify-content-center'>
           {searchItems.map((item) => (
             <ItemCard
@@ -20,7 +25,7 @@ const SearchPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -42,7 +42,7 @@ const ItemDetails = () => {
   }
 
   return (
-    <div>
+    <>
       <div className='container-md mt-3'>
         <div>
           <button className='btn' onClick={() => navigate(-1)}> &lt; Back</button>
@@ -71,7 +71,7 @@ const ItemDetails = () => {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa iste rerum aliquid libero corporis explicabo sit quod? Beatae odit vero minus eos. Quidem aspernatur distinctio, minus recusandae neque architecto, dicta aliquid atque labore quasi optio! Aliquam, impedit dolore, iste inventore officiis ex ab at cum veritatis blanditiis aspernatur, id minus? Inventore tempora error nihil reiciendis mollitia possimus labore alias accusantium nobis recusandae sequi nisi placeat consequatur commodi dignissimos sint consequuntur reprehenderit blanditiis, ullam nemo illo dolorem aspernatur esse laudantium! Repellat rerum a dicta accusamus tempora doloremque possimus, iure hic, laudantium assumenda odit unde dolorem voluptatum asperiores reprehenderit quae ea doloribus.</p>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
