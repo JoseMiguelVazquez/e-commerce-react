@@ -27,7 +27,7 @@ const Login = () => {
   })
 
   return (
-    <div>
+    <>
       <div className='container mt-4'>
         <div>
           <h2>Log In</h2>
@@ -71,7 +71,7 @@ const Login = () => {
           <Link className='text-dark' to='/signup'>Not a registered user? Sign Up!</Link>
         </form>
       </div>
-    </div>
+    </>
   )
 }
 

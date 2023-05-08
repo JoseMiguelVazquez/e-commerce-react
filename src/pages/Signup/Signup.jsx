@@ -28,7 +28,7 @@ const Signup = () => {
   })
 
   return (
-    <div>
+    <>
       <div className='container mt-4'>
         <div>
           <h2>Sign Up</h2>
@@ -124,7 +124,7 @@ const Signup = () => {
           <Link className='text-dark' to='/login'>Already registered? Log In!</Link>
         </form>
       </div>
-    </div>
+    </>
   )
 }
 
