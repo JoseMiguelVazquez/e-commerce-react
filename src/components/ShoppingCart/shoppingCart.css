@@ -19,6 +19,27 @@
     padding: 0 20px;
 }
 
+.cart-product-img {
+    width: 60px;
+}
+
+.cart-item-info {
+    font-size: 0.9rem;
+}
+
+.bi-dash, .bi-plus {
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.bi-trash3 {
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
 .checkout {
     position: absolute;
     bottom: 0;
