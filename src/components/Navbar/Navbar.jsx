@@ -68,12 +68,15 @@ const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
       <div className='container-fluid'>
-        <NavLink className='navbar-brand' to='#'>Navbar</NavLink>
+        <NavLink className='navbar-brand d-flex justify-content-center align-items-center' to='#'>
+          <i className='bi bi-shop me-1' />
+          <p className='m-0'>Shop</p>
+        </NavLink>
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
           <span className='navbar-toggler-icon' />
         </button>
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+          <ul className='navbar-nav me-auto mb-0 mb-lg-0'>
             <li className='nav-item'>
               <NavLink className='nav-link' aria-current='page' to='/'>Home</NavLink>
             </li>
@@ -89,7 +92,7 @@ const Navbar = () => {
           </ul>
           <form className='d-flex' role='search' onSubmit={onSearch}>
             <input
-              className='form-control me-2'
+              className='form-control me-1'
               type='search'
               placeholder='Search'
               aria-label='Search'
@@ -99,10 +102,11 @@ const Navbar = () => {
             <button
               className='btn-search'
               type='submit'
-            >Search
+            >
+              <i className='bi bi-search' />
             </button>
           </form>
-          <ul className='navbar-nav mb-2 mb-lg-0 mx-1'>
+          <ul className='navbar-nav mb-0 mb-lg-0 mx-1'>
             <li className='nav-item dropdown'>
               <NavLink className='nav-link dropdown-toggle' to='#' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
                 Hello, {isAuth ? userData?.first_name : ('log in or sign up')}
