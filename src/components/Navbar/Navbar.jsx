@@ -11,7 +11,7 @@ import './navbar.css'
 const Navbar = () => {
   const { setSearchItems } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
-  const { openCart, setOpenCart } = useCartContext()
+  const { openCart, setOpenCart, shoppingCart, cartItemsNumber, calculateItemNumber } = useCartContext()
   const [searchTerm, setSearchTerm] = useState('')
   const [userData, setuserData] = useState('')
   const searchNavigate = useNavigate()
@@ -34,6 +34,10 @@ const Navbar = () => {
       fetchUserData()
     }
   }, [isAuth])
+
+  useEffect(() => {
+    calculateItemNumber()
+  }, [shoppingCart])
 
   const fetchItemsData = async () => {
     try {
@@ -79,7 +83,7 @@ const Navbar = () => {
             {
               userPayload?.role === 'ADMIN' &&
                 <li className='nav-item'>
-                  <NavLink className='nav-link' to='/add-item'>Add New Item</NavLink>
+                  <NavLink className='nav-link' to='/add-item'>New Item</NavLink>
                 </li>
             }
           </ul>
@@ -122,9 +126,9 @@ const Navbar = () => {
           </ul>
           {isAuth
             ? (
-              <div>
-                <span className='cartItemsNumber'>0</span>
-                <i className='bi bi-cart3 fs-4 text-light cart-icon' onClick={() => setOpenCart(!openCart)} />
+              <div className='d-flex align-items-center'>
+                <i className='bi bi-cart3 fs-4 text-light cart-icon me-1' onClick={() => setOpenCart(!openCart)} />
+                <span className='cartItemsNumber'>{cartItemsNumber}</span>
               </div>
               )
             : <></>}

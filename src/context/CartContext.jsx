@@ -6,9 +6,14 @@ function CartProvider (props) {
   const [shoppingCart, setShoppingCart] = useState([])
   const [openCart, setOpenCart] = useState(false)
   const [cartTotal, setCartTotal] = useState(0)
+  const [cartItemsNumber, setCartItemsNumber] = useState(0)
 
   function calculateTotal () {
     setCartTotal(shoppingCart.reduce((accumulator, item) => accumulator + (parseInt(item.item.price) * item.quantity), 0))
+  }
+
+  function calculateItemNumber () {
+    setCartItemsNumber(shoppingCart.reduce((accumulator, item) => accumulator + item.quantity, 0))
   }
 
   const values = {
@@ -18,7 +23,8 @@ function CartProvider (props) {
     setOpenCart,
     calculateTotal,
     cartTotal,
-    setCartTotal
+    calculateItemNumber,
+    cartItemsNumber
   }
 
   return (
