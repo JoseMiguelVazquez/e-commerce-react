@@ -9,10 +9,9 @@ import ShoppingCart from '@/components/ShoppingCart'
 import './navbar.css'
 
 const Navbar = () => {
-  const { setSearchItems } = useSearchContext()
+  const { setSearchItems, searchTerm, setSearchTerm } = useSearchContext()
   const { isAuth, userPayload, logout } = useAuthContext()
   const { openCart, setOpenCart, shoppingCart, cartItemsNumber, calculateItemNumber } = useCartContext()
-  const [searchTerm, setSearchTerm] = useState('')
   const [userData, setuserData] = useState('')
   const searchNavigate = useNavigate()
 

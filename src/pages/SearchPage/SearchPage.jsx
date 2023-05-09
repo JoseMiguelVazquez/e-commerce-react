@@ -1,11 +1,36 @@
+import { useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
-import { useNavigate } from 'react-router-dom'
+import { getAllItems } from '@/services/itemServices'
 import ItemCard from '@/components/ItemCard'
 import './searchPage.css'
 
 const SearchPage = () => {
-  const { searchItems } = useSearchContext()
+  const { searchItems, setSearchItems, setSearchTerm } = useSearchContext()
   const navigate = useNavigate()
+  const { query } = useParams()
+
+  useEffect(() => {
+    setSearchTerm(query)
+    const fetchItemsData = async () => {
+      try {
+        const response = await getAllItems()
+        if (response.status === 200) {
+          setSearchItems(response.data.filter(item => {
+            if (query === '') {
+              return item
+            } else if (item.product_name.toLowerCase().includes(query.toLowerCase())) {
+              return item
+            }
+            return false
+          }))
+        }
+      } catch (error) {
+        console.log('Ocurrió un error: ' + error.message)
+      }
+    }
+    fetchItemsData()
+  }, [query])
 
   return (
     <>
