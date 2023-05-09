@@ -39,6 +39,7 @@ const SearchPage = () => {
           <button className='btn' onClick={() => navigate(-1)}> &lt; Back</button>
         </div>
         <div className='row d-flex justify-content-center'>
+          <h3>Results for: "{query}"</h3>
           {searchItems.length === 0 &&
             <p className='mt-3'>No Items Matching your search</p>}
           {searchItems.map((item) => (
