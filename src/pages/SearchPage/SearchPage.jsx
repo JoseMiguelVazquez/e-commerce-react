@@ -14,6 +14,8 @@ const SearchPage = () => {
           <button className='btn' onClick={() => navigate(-1)}> &lt; Back</button>
         </div>
         <div className='row d-flex justify-content-center'>
+          {searchItems.length === 0 &&
+            <p className='mt-3'>No Items Matching your search</p>}
           {searchItems.map((item) => (
             <ItemCard
               key={item.id}
