@@ -10,7 +10,8 @@
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background-color: red;
+    background-color: rgb(202, 32, 32);
+    font-size: 0.9rem;
     padding-right: 1px;
     padding-top: 1px;
 }
