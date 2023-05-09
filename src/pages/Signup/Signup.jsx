@@ -27,8 +27,7 @@ const Signup = () => {
     last_name: '',
     gender: '',
     email: '',
-    password: '',
-    role: ''
+    password: ''
   })
 
   return (
@@ -112,14 +111,6 @@ const Signup = () => {
               autoComplete='off'
               required
             />
-          </div>
-          <div className='mb-3'>
-            <label className='form-label' htmlFor='role'>Role</label>
-            <select className='form-select' name='role' id='role' value={input.role} onChange={handleInputChange} required>
-              <option value=''>Choose a role</option>
-              <option value='CUSTOMER'>Customer</option>
-              <option value='ADMIN'>Admin</option>
-            </select>
           </div>
           <button className='btn btn-custom me-3' type='submit'>
             Sign Up
