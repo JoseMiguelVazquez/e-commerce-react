@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { createItem } from '@/services/itemServices'
 
@@ -10,11 +11,14 @@ const AddItem = () => {
     try {
       const response = await createItem(data)
       if (response.status === 200) {
-        console.log('Producto añadido: ', response)
+        console.log('Product Added: ', response)
+        swal('New Item Successfully Created')
         navigate('/')
       }
     } catch (error) {
-      console.log('Ocurrió un error: ' + error.message)
+      swal('An Error Occurred, Please Try Again Later')
+      console.log('An Error Has Ocurred: ' + error.message)
+      resetForm()
     }
   }
 
