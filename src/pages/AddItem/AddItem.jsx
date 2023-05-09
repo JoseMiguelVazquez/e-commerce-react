@@ -18,7 +18,7 @@ const AddItem = () => {
     }
   }
 
-  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
+  const { input, handleInputChange, handleSubmit, resetForm } = useForm(sendData, {
     product_name: '',
     description: '',
     price: '',

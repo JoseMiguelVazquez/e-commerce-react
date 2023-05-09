@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { registerUserService } from '@/services/userService'
 
@@ -10,15 +11,18 @@ const Signup = () => {
     try {
       const response = await registerUserService(data)
       if (response.status === 201) {
-        console.log('Usuario creado: ', response)
+        console.log('Account Created: ', response)
+        swal('Your Account Has Been Successfully Created')
         navigate('/login')
       }
     } catch (error) {
-      console.log('Ocurrió un error: ' + error.message)
+      swal('An Error Occurred, Please Try Again Later')
+      console.log('An Error Has Ocurred: ' + error.message)
+      resetForm()
     }
   }
 
-  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
+  const { input, handleInputChange, handleSubmit, resetForm } = useForm(sendData, {
     first_name: '',
     last_name: '',
     gender: '',
@@ -79,7 +83,6 @@ const Signup = () => {
               <option value=''>Choose your gender</option>
               <option value='M'>Male</option>
               <option value='F'>Female</option>
-              <option value='O'>Other</option>
             </select>
           </div>
           <div className='mb-3'>

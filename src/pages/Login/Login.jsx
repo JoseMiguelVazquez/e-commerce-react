@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { loginUserService } from '@/services/userService'
 import { useAuthContext } from '@/context/AuthContext'
@@ -12,16 +13,19 @@ const Login = () => {
     try {
       const response = await loginUserService(data)
       if (response.status === 200) {
-        console.log('Usuario Autorizado: ', response.data.token)
+        console.log('User Logged: ', response.data.token)
         login(response.data.token)
+        swal('Welcome back!')
         navigate('/')
       }
     } catch (error) {
-      console.log('Ocurrió un error: ' + error.message)
+      swal('Incorrect Email or Password')
+      console.log('An Error Has Ocurred: ' + error.message)
+      resetForm()
     }
   }
 
-  const { input, handleInputChange, handleSubmit } = useForm(sendData, {
+  const { input, handleInputChange, handleSubmit, resetForm } = useForm(sendData, {
     email: '',
     password: ''
   })

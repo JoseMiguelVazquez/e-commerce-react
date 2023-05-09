@@ -15,10 +15,16 @@ function useForm (callback, defaults) {
     const { name, value } = event.target
     setInput({ ...input, [name]: value })
   }
+
+  const resetForm = () => {
+    setInput(defaults)
+  }
+
   return {
     input,
     handleInputChange,
-    handleSubmit
+    handleSubmit,
+    resetForm
   }
 }
 
