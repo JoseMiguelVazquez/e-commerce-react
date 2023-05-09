@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { useSearchContext } from '@/context/SearchContext'
 import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { loginUserService } from '@/services/userService'
@@ -7,7 +8,12 @@ import { useAuthContext } from '@/context/AuthContext'
 
 const Login = () => {
   const navigate = useNavigate()
+  const { setSearchTerm } = useSearchContext()
   const { login } = useAuthContext()
+
+  useEffect(() => {
+    setSearchTerm('')
+  }, [])
 
   const sendData = async (data) => {
     try {

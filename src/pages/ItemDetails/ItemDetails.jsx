@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getSingleItem } from '@/services/itemServices'
+import { useSearchContext } from '@/context/SearchContext'
 import { useAuthContext } from '@/context/AuthContext'
 import { useCartContext } from '@/context/CartContext'
 import './itemDetails.css'
@@ -11,8 +12,10 @@ const ItemDetails = () => {
   const navigate = useNavigate()
   const { isAuth } = useAuthContext()
   const { setShoppingCart, shoppingCart } = useCartContext()
+  const { setSearchTerm } = useSearchContext()
 
   useEffect(() => {
+    setSearchTerm('')
     const fetchItemData = async () => {
       try {
         const response = await getSingleItem(id)

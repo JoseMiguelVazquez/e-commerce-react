@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSearchContext } from '@/context/SearchContext'
 import './about.css'
 
 const About = () => {
+  const { setSearchTerm } = useSearchContext()
+
+  useEffect(() => {
+    setSearchTerm('')
+  }, [])
+
   return (
     <>
       <div className='container mt-5 about-section'>

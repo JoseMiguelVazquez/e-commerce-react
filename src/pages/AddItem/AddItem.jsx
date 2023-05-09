@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSearchContext } from '@/context/SearchContext'
 import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { createItem } from '@/services/itemServices'
 
 const AddItem = () => {
   const navigate = useNavigate()
+  const { setSearchTerm } = useSearchContext()
+
+  useEffect(() => {
+    setSearchTerm('')
+  }, [])
 
   const sendData = async (data) => {
     try {
