@@ -1,13 +1,15 @@
 .shopping-cart {
     --cart-width: 300px;
     position: fixed;
-    top: 56px;
-    left: 100%;
+    top: 60px;
+    left: 105%;
     width: var(--cart-width);
-    height: 70vh;
+    min-height: 70vh;
     background-color: white;
     z-index: 10;
     transition: 0.5s;
+    border-radius: 5px;
+    box-shadow: -2px 2px 5px grey;
 }
 
 .show-cart {
