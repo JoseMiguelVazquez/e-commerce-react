@@ -34,7 +34,7 @@ const SearchPage = () => {
 
   return (
     <>
-      <div className='container pt-4'>
+      <div className='container-fluid pt-4'>
         <div>
           <button className='btn' onClick={() => navigate(-1)}> &lt; Back</button>
         </div>
