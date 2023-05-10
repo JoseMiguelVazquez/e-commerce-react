@@ -20,7 +20,7 @@ const ItemCard = ({ id, imageUrl, name, price }) => {
           </div>
           <div className='card-text-container d-flex flex-column justify-content-center px-3'>
             <h6>{name}</h6>
-            <p>${price}.00</p>
+            <p>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)}</p>
           </div>
         </div>
       </Link>

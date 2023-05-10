@@ -57,7 +57,7 @@ const ItemDetails = () => {
           <div className='mb-3'>
             <h1>{item.product_name}</h1>
             <p>{item.brand}</p>
-            <h5>${item.price}.00</h5>
+            <h5>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(item.price)}</h5>
             <p>{item.description}</p>
             <button
               className='btn btn-custom me-3'
