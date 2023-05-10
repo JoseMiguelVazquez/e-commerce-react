@@ -5,7 +5,7 @@ import './itemCard.css'
 
 const ItemCard = ({ id, imageUrl, name, price }) => {
   return (
-    <div className='col my-1 p-0 d-flex justify-content-center'>
+    <div className='col my-1 py-1 px-1 d-flex justify-content-center'>
       <Link
         to={`/items/${id}`}
         className='text-decoration-none text-dark d-flex justify-content-center link-card-container'

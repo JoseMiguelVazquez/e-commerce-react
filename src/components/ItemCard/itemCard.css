@@ -1,5 +1,7 @@
 .link-card-container {
-  width: 232px;
+  width: 220px;
+  box-shadow: -2px 2px 10px rgb(184, 184, 184);
+  border-radius: 5px;
 }
 
 .card-container {
