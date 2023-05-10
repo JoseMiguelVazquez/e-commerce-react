@@ -29,7 +29,7 @@ const Home = () => {
       <div>
         <img id='banner-img' src={bannerImage} alt='' />
       </div>
-      <div className='container pt-4'>
+      <div className='container-fluid pt-4'>
         <h3>Only the best products</h3>
         <div className='row d-flex justify-content-center'>
           {items.map((item) => (
