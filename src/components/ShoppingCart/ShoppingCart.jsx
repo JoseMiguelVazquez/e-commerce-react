@@ -41,13 +41,13 @@ const ShoppingCart = ({ show }) => {
       <h3 className='mt-3 text-center'>Shopping Cart</h3>
       <hr />
       <div className='shopping-products'>
-        <ul className='list-group'>
+        <ul className='list-group product-list'>
           {shoppingCart.map((item, index) => (
             <li className='list-group-item d-flex align-items-center' key={item.item.id}>
-              <div className='me-2'>
+              <div className='me-2 cart-product-img-container'>
                 <img className='cart-product-img' src={item.item.image} alt='' />
               </div>
-              <div className='cart-item-info'>
+              <div className='cart-product-info'>
                 <h6 className='m-0 fw-bold'>{item.item.product_name}</h6>
                 <p className='m-0'>${item.item.price}.00</p>
                 <div className='m-0 d-flex align-items-center'>
