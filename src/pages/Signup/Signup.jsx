@@ -46,6 +46,7 @@ const Signup = () => {
           <hr />
         </div>
         <form
+          className='col-12 col-md-8 col-lg-6 col-xl-4'
           onSubmit={handleSubmit}
         >
           <div className='mb-3'>
