@@ -6,6 +6,7 @@ import { getSingleUser } from '@/services/userService'
 import { getAllItems } from '@/services/itemServices'
 import { useCartContext } from '@/context/CartContext'
 import ShoppingCart from '@/components/ShoppingCart'
+import Logo from '@/assets/Logo.png'
 import './navbar.css'
 
 const Navbar = () => {
@@ -68,8 +69,7 @@ const Navbar = () => {
     <nav className='navbar navbar-expand-md bg-body-tertiary navbar-dark'>
       <div className='container-fluid'>
         <NavLink className='navbar-brand d-flex justify-content-center align-items-center' to='#'>
-          <i className='bi bi-shop me-1' />
-          <p className='m-0'>Shop</p>
+          <img className='logo ms-2' src={Logo} alt='' />
         </NavLink>
         <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
           <span className='navbar-toggler-icon' />

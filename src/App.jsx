@@ -5,6 +5,7 @@ import RoutesIndex from '@/routes/RoutesIndex'
 import { SearchProvider } from '@/context/SearchContext'
 import { AuthProvider } from '@/context/AuthContext'
 import { CartProvider } from '@/context/CartContext'
+import Footer from '@/components/Footer'
 
 function App () {
   return (
@@ -15,6 +16,7 @@ function App () {
             <SearchProvider>
               <Navbar />
               <RoutesIndex />
+              <Footer />
             </SearchProvider>
           </BrowserRouter>
         </CartProvider>

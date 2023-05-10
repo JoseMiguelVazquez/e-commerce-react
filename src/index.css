@@ -8,6 +8,10 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
+.logo {
+  width: 115px;
+}
+
 .btn-custom, .btn-search {
   background-color: rgb(237, 163, 21);
 }
