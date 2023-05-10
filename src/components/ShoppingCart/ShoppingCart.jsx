@@ -49,13 +49,13 @@ const ShoppingCart = ({ show }) => {
               </div>
               <div className='cart-product-info'>
                 <h6 className='m-0 fw-bold'>{item.item.product_name}</h6>
-                <p className='m-0'>${item.item.price}.00</p>
+                <p className='m-0'>{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(parseInt(item.item.price))}</p>
                 <div className='m-0 d-flex align-items-center'>
                   <i className='bi bi-dash mx-1' onClick={() => handleDecreaseQuantity(index)} />
                   <p className='m-0'>{item.quantity}</p>
                   <i className='bi bi-plus mx-1' onClick={() => handleIncreaseQuantity(index)} />
                 </div>
-                <p className='m-0'>Total: ${parseInt(item.item.price) * item.quantity}.00</p>
+                <p className='m-0'>Total: {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(parseInt(item.item.price) * item.quantity)}</p>
                 <i className='bi bi-trash3 ms-3' onClick={() => handleDeleteProduct(index)} />
               </div>
             </li>
@@ -65,7 +65,7 @@ const ShoppingCart = ({ show }) => {
         <h5>
           Total Cost:
           <span className='ms-2'>
-            ${cartTotal}.00
+            {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cartTotal)}
           </span>
         </h5>
       </div>
