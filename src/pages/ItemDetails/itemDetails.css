@@ -2,3 +2,8 @@
     max-width: 250px;
     max-height: 250px;
 }
+
+.white-space-item-details {
+    width: 100vw;
+    height: 24px;
+}
