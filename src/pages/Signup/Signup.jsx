@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useSearchContext } from '@/context/SearchContext'
 import swal from 'sweetalert'
@@ -8,6 +8,7 @@ import './signup.css'
 
 const Signup = () => {
   const { setSearchTerm } = useSearchContext()
+  const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -108,17 +109,24 @@ const Signup = () => {
           </div>
           <div className='mb-3'>
             <label className='form-label' htmlFor='password'>Password</label>
-            <input
-              className='form-control'
-              type='password'
-              name='password'
-              placeholder='Write Your Password'
-              id='password'
-              value={input.password}
-              onChange={handleInputChange}
-              autoComplete='off'
-              required
-            />
+            <span className='input-group'>
+              <input
+                className='form-control'
+                type={showPassword ? 'text' : 'password'}
+                name='password'
+                placeholder='Write Your Password'
+                id='password'
+                value={input.password}
+                onChange={handleInputChange}
+                autoComplete='off'
+                required
+              />
+              <button type='button' className='btn btn-secondary' onClick={() => setShowPassword(!showPassword)}>
+                {showPassword
+                  ? <i class='bi bi-eye' />
+                  : <i class='bi bi-eye-slash' />}
+              </button>
+            </span>
           </div>
           <button className='btn btn-custom me-3' type='submit'>
             Sign Up
