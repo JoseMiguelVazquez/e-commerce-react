@@ -18,6 +18,7 @@ const About = () => {
         <a target='_blank' href='https://www.vecteezy.com/free-vector/ecommerce-banner' rel='noreferrer'>Ecommerce Banner Vectors by Vecteezy</a>
         <p className='mt-5'>Developed by <a target='_blank' href='https://github.com/JoseMiguelVazquez' rel='noreferrer'>José Miguel Vázquez E.</a></p>
       </div>
+      <div className='white-space' />
     </>
   )
 }

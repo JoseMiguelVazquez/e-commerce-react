@@ -4,6 +4,7 @@ import { useSearchContext } from '@/context/SearchContext'
 import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { registerUserService } from '@/services/userService'
+import './signup.css'
 
 const Signup = () => {
   const { setSearchTerm } = useSearchContext()
@@ -124,6 +125,7 @@ const Signup = () => {
           <Link className='text-dark' to='/login'>Already registered? Log In!</Link>
         </form>
       </div>
+      <div className='white-space-signup' />
     </>
   )
 }

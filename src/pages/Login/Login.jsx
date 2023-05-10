@@ -5,6 +5,7 @@ import swal from 'sweetalert'
 import useForm from '@/hooks/useForm'
 import { loginUserService } from '@/services/userService'
 import { useAuthContext } from '@/context/AuthContext'
+import './login.css'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -81,6 +82,7 @@ const Login = () => {
           <Link className='text-dark' to='/signup'>Not a registered user? Sign Up!</Link>
         </form>
       </div>
+      <div className='white-space-login' />
     </>
   )
 }
