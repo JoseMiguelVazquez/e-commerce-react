@@ -90,20 +90,22 @@ const Navbar = () => {
             }
           </ul>
           <form className='d-flex' role='search' onSubmit={onSearch}>
-            <input
-              className='form-control me-1'
-              type='search'
-              placeholder='Search'
-              aria-label='Search'
-              value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
-            />
-            <button
-              className='btn-search'
-              type='submit'
-            >
-              <i className='bi bi-search' />
-            </button>
+            <span className='input-group'>
+              <input
+                className='form-control'
+                type='search'
+                placeholder='Search'
+                aria-label='Search'
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+              />
+              <button
+                className='btn-search'
+                type='submit'
+              >
+                <i className='bi bi-search' />
+              </button>
+            </span>
           </form>
           <ul className='navbar-nav mb-0 mb-lg-0 mx-1'>
             <li className='nav-item dropdown'>
